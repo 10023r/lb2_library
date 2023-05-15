@@ -1,0 +1,48 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        link(type="Image/x-icon" href="../../../pictures/Book-icon.ico" rel="icon")
+        link(href="../../../styles/w3.css", rel="stylesheet")
+        title Take book page
+    body
+        dialog(class="w3-border-blue w3-animate-zoom" style="margin-top: 10%")
+            form(class="w3-container w3-card-4", action="/lib", method="GET")
+                p
+                    label(class="w3-text-blue")
+                        b Name
+                    input(id="username" class="w3-input w3-border", name="owner", type="text" required=true)
+                p
+                    label(class="w3-text-blue")
+                        b Return date
+                    input(id="returnDate" class="w3-input w3-border", name="return_date", type="date" required=true)
+                p
+                    button(id="takeBtn" class="w3-btn w3-blue" type='submit' name='id') Submit
+
+        div(class="w3-margin-top" style="display: grid; justify-content: center; grid-auto-flow: column; grid-column-gap: 50px;")
+            img(class="w3-image" src="../../../" + book.imgURL alt="cover")
+            div(class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" id='bookInfo')
+                h2(class="w3-center") Book info
+                    div(class="w3-row w3-section")
+                        div(class="w3-rest")
+                            label(style="color: black")= book.name
+
+                    div(class="w3-row w3-section")
+                        div(class="w3-rest")
+                            label(style="color: black")= book.author
+
+                    div(class="w3-row w3-section")
+                        div(class="w3-rest")
+                        label(style="color: black")= book.date
+                if !book.owner
+                    p(style='color: forestgreen') Is available
+                    button(class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding" id="take-btn" value=book.id) Take book
+                else
+                    p(style='color: red') Isn't available. Currently read by #{book.owner}
+                    p(style='color: red') Return date: #{book.return_date}
+                    form(action="/lib" method="GET")
+                        button(class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding" id="return-btn" type='submit' name='id' value=book.id) Return book
+
+
+
+        script(src='../../../scripts/getBook.js' type='module')

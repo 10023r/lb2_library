@@ -1,0 +1,47 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        link(type="Image/x-icon" href="../pictures/Book-icon.ico" rel="icon")
+        link(href="styles/w3.css", rel="stylesheet")
+        title Home
+    body
+        h1(class="w3-center") Welcome to the home library
+
+        div(class="w3-container")
+            div(class="w3-container")
+                h2(class="w3-left w3-margin-left") Books in library
+                div(class="dropdown")
+                    form(action="lib/add", method="GET")
+                        input(alt="Add" class="w3-right w3-margin-right w3-margin-top" type="image" name="add" src="pictures/plus-icon.png")
+                    input(alt="Filter" class="w3-right w3-margin-right w3-margin-top" type="image" name="filter" src="pictures/filter-icon.png" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'")
+                    div(class="w3-right w3-margin-right w3-margin-top" id="filter-container" style="display: none")
+                        input(type="radio" id="allBooks" name="filter-choices" checked=true)
+                        label(for="allBooks" class="w3-margin-left w3-margin-right") Все книги
+                        input(type="radio" id="available" name="filter-choices")
+                        label(for="available" class="w3-margin-left w3-margin-right") В наличии
+                        input(type="radio" id="returnDate" name="filter-choices")
+                        label(for="returnDate" class="w3-margin-left w3-margin-right") По дате возврата
+
+            ul(class="w3-ul w3-card-4" id="book_list")
+                each val in books
+                    li(class="w3-bar" id=val.id)
+                        span(class="deleteBook " + (val.owner ? "owned" + val.id : "available")  class="w3-bar-item w3-button w3-white w3-xlarge w3-right" ) ×
+                        form(method="GET" action="lib/books/edit/" + val.id)
+                            input(type="image" src="./pictures/edit.png" alt="edit" class="w3-button w3-right")
+                        form(method="GET" action="lib/books/" + val.id)
+                            div(class="w3-button w3-left-align" style="width: 100%" onclick="this.parentNode.submit()")
+                                img(alt="bookCover" src=val.imgURL  class="w3-bar-item" style="width:85px" )
+                                div(class="w3-bar-item")
+                                    span(class="w3-xlarge")=val.name
+                                    br
+                                    span(class="w3-margin-top")=val.author
+                                    br
+                                    span(class="w3-margin-top")=val.date
+                                    br
+                                    //if !val.owner
+                                    //    span(style='color: forestgreen') Is available
+                                    //else
+                                    //    span(style='color: red') Isn't available. Currently read by #{val.owner}
+
+        script(src='../scripts/index.js' type='module')

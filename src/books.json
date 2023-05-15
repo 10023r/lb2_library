@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "name": "Crime and punishment",
+    "author": "Fedor Dostoevskiy",
+    "date": "1866",
+    "owner": "",
+    "return_date": "",
+    "imgURL": "./pictures/crime-punishment-cover.jpg"
+  },
+  {
+    "id": "2",
+    "name": "1984",
+    "author": "George Orwell",
+    "date": "1949",
+    "owner": "",
+    "return_date": "",
+    "imgURL": "./pictures/1984.jpg"
+  },
+  {
+    "id": "3",
+    "name": "A clockwork orange",
+    "author": "Anthony Burgess",
+    "date": "1962",
+    "owner": "",
+    "return_date": "",
+    "imgURL": "./pictures/cover-clockwork.jpg"
+  },
+  {
+    "id": "4",
+    "name": "Flowers for Algernon",
+    "author": "Daniel Keyes",
+    "date": "1958",
+    "owner": "",
+    "return_date": "",
+    "imgURL": "./pictures/flower-for-Algernon-cover.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Three comrades",
+    "author": "Erich Maria Remarque",
+    "date": "1936",
+    "owner": "",
+    "return_date": "",
+    "imgURL": "./pictures/three-Comrades-cover.jpg"
+  },
+  {
+    "id": "6",
+    "name": "Time is money",
+    "author": "B. Franklin",
+    "date": "1748",
+    "owner": "",
+    "return_date": "",
+    "imgURL": "./pictures/cover1.jpg"
+  }
+]

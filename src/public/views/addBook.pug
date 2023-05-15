@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        meta(charset="UTF-8")
+        link(type="Image/x-icon" href="../../../pictures/Book-icon.ico" rel="icon")
+        link(href="../../../styles/w3.css", rel="stylesheet")
+        title Add page
+    body
+        div(class="w3-margin-top" style="display: grid; justify-content: center; grid-auto-flow: column; grid-column-gap: 50px;")
+            img(class="w3-image" src="../../../pictures/template_book_cover.jpg" alt="cover")
+            form(method="POST" action="/lib/books" class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin" id='bookInfo')
+                h2(class="w3-center") Book info
+                    div(class="w3-row w3-section")
+                        div(class="w3-rest")
+                            label(for="name") Name
+                            input(required=true class="w3-input w3-border" name="name" type="text" placeholder="Book Name" id="name")
+
+                    div(class="w3-row w3-section")
+                        div(class="w3-rest")
+                            label(for="author") Author
+                            input(required=true class="w3-input w3-border" name="author" type="text" placeholder="Author name" id="author")
+
+                    div(class="w3-row w3-section")
+                        div(class="w3-rest")
+                        label(for="date") Date
+                        input(required=true class="w3-input w3-border" name="date" type="date" placeholder="written date" id="date")
+                button(class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding" type='submit' name="id" id="addBtn") Add
+
